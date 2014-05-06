@@ -1,0 +1,4 @@
+root: http://localhost:8800
+
+exclude: [ "Makefile", "serve.py" ]
+markdown: rdiscount

@@ -1,0 +1,51 @@
+#ajax-error-alert {
+	position: absolute;
+	top: 25%;
+	left: 25%;
+	margin-right: 25%;
+	box-shadow: 0 0 10px #a88;
+}
+
+#config-view {
+	margin-top: 10px;
+}
+
+.action-bar {
+	background: #eee;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 3px;
+}
+
+.pin-config-box {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 3px;
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+.pin-value-bg {
+	border-radius: 3px;
+	padding: 3px;
+	text-align: center;
+}
+
+[data-pin-value=true] .pin-value-bg { background: #ffddcc }
+[data-pin-value=false] .pin-value-bg { background: #dddddd }
+
+.poll-status {
+	color: gray;
+}
+
+.pin-no {
+	font-size: 18px;
+	font-weight: bold;
+    color: #888;
+    padding: 5px;
+}
+
+.pin-commands label {
+    text-align: right;
+    padding-top: 5px;
+}

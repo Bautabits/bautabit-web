@@ -1,0 +1,43 @@
+<html>
+<head>
+	<title>{{page.title}}</title>
+	<script>
+
+	function loadcss(url) {
+		var head = document.getElementsByTagName('head')[0];
+		var link = document.createElement('link');
+		link.type = 'text/css';
+		link.rel = 'stylesheet';
+		link.href = url;
+		head.appendChild(link);
+		return link;
+	}
+
+	function loadjs(url) {
+		var parent = document.getElementsByTagName('body')[0];
+		if (!parent) parent = document.getElementsByTagName('head')[0];
+		var script = document.createElement('script');
+		script.src = url;
+		parent.appendChild(script);
+		return script;
+	}
+
+	// IE fix
+	if (!window.location.origin)
+    	window.location.origin = window.location.protocol+"//"+window.location.host;
+
+	if (!('hombit_root' in this)) hombit_root = '{{site.root}}';
+	loadcss(hombit_root + '/css/bootstrap.min.css');
+	loadcss(hombit_root + '/css/bootstrap-responsive.min.css');
+	loadcss(hombit_root + '/css/style.css');
+	loadjs(hombit_root + '/js/lib/bootstrap.js');
+
+	</script>
+</head>
+
+<body>
+	<div id="content" class="container">
+		{{content}}
+	</div>
+</body>
+</html>

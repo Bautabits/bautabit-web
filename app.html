@@ -1,0 +1,86 @@
+---
+title: Bautabit
+layout: app
+---
+
+{% raw %}
+<script id="mainview-template" type="text/x-handlebars-template" style="display: none">
+	<div id="ajax-error-alert" class="alert alert-error" style="display: none">
+	</div>
+
+	<div id="device-id-bar">
+		Bautabit ID <b>{{id}}</b> type <b>{{type}}</b>
+	</div>
+
+	<div id="persistent-error-alert" class="alert alert-error" style="margin-top: 10px; display:none">
+	</div>
+
+	<div id="config-view"></div>
+
+</script>
+
+<script id="configview-template" type="text/x-handlebars-template" style="display: none">
+	<div class="action-bar form-inline">
+		<div class="row-fluid">
+			<div class="span8">
+				<label><input type="checkbox" class="show-unnamed-checkbox"/> Show unnamed pins</label>
+			</div>
+			<div class="span4" style="text-align: right">
+				<span class="poll-status"></span>
+				<label>Polling</label>
+				<select class="polling-select span5">
+					<option value="">Disabled</option>
+					<option value="enabled">Enabled</option>
+				</select>
+			</div>
+		</div>
+	</div>
+
+	<div id="pin-config-views"></div>
+</script>
+
+<script id="pinconfigview-template" type="text/x-handlebars-template" style="display: none">
+	<div class="pin-config-box">
+        <div class="row-fluid">
+            <div class="span1 pin-no">
+                {{pinNo}}
+            </div>
+            <div class="span2" style="text-align: right">
+                <input type="text" class="name-input span11" placeholder="Unnamed" value="{{name}}"/>
+            </div>
+            <div class="span2">
+                <select class="mode-select span10">
+                    <option value="in">In</option>
+                    <option value="out">Out</option>
+                </select>
+            </div>
+            <div class="span2 pin-value pin-value-bg">
+                <div class="row-fluid">
+                    <a href="#" class="span5 offset1 set-io-btn btn btn-small">1</a>
+                    <a href="#" class="span5 clear-io-btn btn btn-small">0</a>
+                </div>
+            </div>
+            {{#if output}}
+            <div class="span5 pin-commands">
+                <div class="row-fluid">
+                    <div class="span4">
+                        <label>Blink</label>
+                    </div>
+                    <div class="span4">
+                        <input type="number" class="blink-input blink-on-input span11" placeholder="On" value="{{blinkOnInterval}}"/>
+                    </div>
+                    <div class="span4">
+                        <input type="number" class="blink-input blink-off-input span11" placeholder="Off" value="{{blinkOffInterval}}"/>
+                    </div>
+                </div>
+            </div>
+            {{/if}}
+        </div>
+	</div>
+</script>
+
+{% endraw %}
+
+<script>
+	loadjs(hombit_root + '/app.js');
+</script>
